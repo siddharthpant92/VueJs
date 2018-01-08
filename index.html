@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <title>vuejs</title>
+	    <script src="vue.js"></script>
+	</head> 
+	<body>
+		<h1>Section 1 - section 2.15</h1>
+		<div id="app">
+	  	<input type="text" v-on:input="changeTitle" v-model="message">
+	  	<br>
+	  	{{message}}
+	  	<p>
+	  		<p>
+		    	<span v-once> Doesn't get overwritten: {{title}}</span><br>
+		    	<span>Does get overwritten: {{title}}</span>
+	    	</p>
+			<br>
+	    	Calling hello(): {{sayHello()}}
+	  	</p>
+	  	<p>
+	  		Calling raw html from vuejs: <span v-html="finishedLink"></span>
+	  	</p>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	new Vue(
+	{
+		el: '#app',
+		data: 
+		{
+			title: "hello world",
+			message: "",
+			finishedLink: "<a href='https://www.google.com' target='_blank'>google</a>"
+		},
+		methods:
+		{
+			changeTitle: function()
+			{
+				this.title = event.target.value
+			},
+			sayHello: function()
+			{
+				this.title="HELLO!"
+				return this.title
+			}
+		}
+	})
+</script>

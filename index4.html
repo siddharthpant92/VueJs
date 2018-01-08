@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<h1>Section 3.33 - 3.45</h1>
+        	<template v-if="shows">
+        		<p>Now you see me</p>
+        		<p>Do you??</p>
+        	</template>
+        	<template v-else>
+        		<p>Now you don't</p>
+        	</template>
+        	<p v-show="shows">How about me??</p>
+        	<button @click="shows = !shows">Click me</button>
+        	<br><br>
+	        <ul>
+	        	<li v-for="(ingred, index) in ingredients">
+	        		{{ingred}} at index: {{index}}
+	        	</li>
+	        </ul>
+	        See :key!!!! Used to preserve identity!
+	        <template v-for="(person, index) in persons" :key="index">
+	        	<p>{{person.name}}: {{person.age}}</p>
+	        </template>
+	        <p>Nested for: (See how key and value are interchanged in code!!!)
+	        	<li v-for="person in persons">
+	        		<span v-for="(value, key) in person">{{key}}: {{value}} </span>
+	        	</li>
+	        </p>
+	        <span v-for="n in 10" :key="n">{{n}}</span>
+	        <br><br>
+	        See exercise5.html to see for loops!
+        </div>
+    </body>
+</html>
+
+<script type="text/javascript">
+	new Vue(
+	{
+		el: "#app",
+		data:
+		{
+			shows: true,
+			ingredients: ["a", "b", "c"],
+			persons: 
+			[
+				{name: "A", age: 12},
+				{name: "B", age: 25}
+			]
+		},
+	});
+</script>

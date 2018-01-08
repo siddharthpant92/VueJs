@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <title>vuejs</title>
+	    <script src="vue.js"></script>
+	</head> 
+	<body>
+		<h1>Section 2.15 - 2.25</h1>
+		<div id="app">
+			<p>
+				<!-- <button v-on:click="update(2)">Update by 2</button><br> -->
+				<button @click="counter++">Update by 1</button><br>
+				<button v-on:click="counter--">Decrease by 1</button><br>
+				<button v-on:click="secondCounter++">Increase second counter</button><br>
+				<b>See code and console!!</b> Computed properties do some magic on the backend and only update for a certain object/variable. If you have some other operation using secondCounter in computed, then both console.log statments are executed for both counters
+				<br>
+				Counter: {{counter}} | {{secondCounter}}
+				<br>
+				Result: {{result()}} | {{output}}
+				<br>
+				<b>See computed and watch!!</b>
+			</p>
+			<p>
+				See 2.19, 2.20 for event modifiers
+			</p>
+			<input v-model="message">
+			<button v-on:click="updateMesage"> Change Message </button>
+			<br>
+			{{message}}
+	  	</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	new Vue(
+	{
+		el: "#app",
+		data:
+		{
+			counter: 0,
+			message: 'test',
+			secondCounter: 0
+		},
+		computed:
+		{
+			output: function()
+			{
+				console.log("computed");
+				return this.counter > 5 ? "greater than 5" : "less than 5";
+			}
+		},
+		watch:
+		{
+			counter: function()
+			{
+				var vm = this;
+				setTimeout(function()
+				{
+					vm.counter = 0;
+					vm.secondCounter = 0;
+				}, 2000);
+			}
+		},
+		methods:
+		{
+			// update: function(step)
+			// {
+			// 	this.counter += 2;
+			// },
+			updateMesage: function()
+			{
+				this.message = Math.random();
+			},
+			result: function()
+			{
+				console.log("method");
+				return this.counter > 5 ? "greater than 5" : "less than 5";
+			}
+		}
+	})
+</script>
