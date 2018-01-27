@@ -1,0 +1,64 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+        	<local-comp></local-comp>
+			<hr>
+			<global-comp></global-comp>
+		</div>
+		<hr><hr>
+		<div id="app2">
+			local-comp gives error here
+			<local-comp></local-comp>
+			<hr>
+			<global-comp></global-comp>
+		</div>
+    </body>
+</html>
+
+<script type="text/javascript">
+
+	//Local component
+	var localcmp = 
+	{
+		data: function()
+		{
+			return{
+				status: "local"
+			}
+		}, 
+		template: "<p>component : {{this.status}}</p>"
+	};
+
+	//Global component
+	Vue.component('global-comp', 
+	{
+		data: function()
+		{
+			return{
+				status: "global-comp"
+			}
+		}, 
+		template: "<p>component : {{this.status}}</p>"
+	});
+
+	new Vue(
+	{
+		el: "#app",
+		components: 
+		{
+			//registering local component
+			'local-comp' : localcmp
+		}
+	});
+
+	new Vue(
+	{
+		el: "#app2",
+	});
+</script>
