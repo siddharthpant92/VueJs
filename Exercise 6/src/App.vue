@@ -10,16 +10,12 @@
         <hr>
         <div class="row">
             <server-list></server-list>
-            
-            <div class="col-xs-12 col-sm-6">
-               <server-details></server-details>
-            </div>
+
+           <server-details></server-details>
         </div>
         <hr>
         <div class="row">
-            <div class="col-xs-12">
-                <server-footer></server-footer>
-            </div>
+            <server-footer></server-footer>
         </div>
     </div>
 </template>
