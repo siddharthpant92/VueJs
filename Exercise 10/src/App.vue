@@ -5,10 +5,9 @@
                 <h1>Directives Exercise</h1>
                 <!-- Exercise -->
                 <!-- Build a Custom Directive which works like v-on (Listen for Events) -->
-                <button v-custom-on="clicked">Custom click directive</button>
-
+                <button v-custom-on:click="clicked">Custom click directive</button>
                 <br><br>
-                Note: See instructor example for this!!
+                <p v-custom-on:mouseover="change">Move mouse over to change color</p>
             </div>
         </div>
     </div>
@@ -22,10 +21,9 @@
             {
                 bind(el, binding, vnode)
                 {
-                    el.addEventListener('click', function()
-                    {
-                        binding.value();
-                    });
+                    var type = binding.arg;
+                    var fn = binding.value;
+                    el.addEventListener(type, fn);
                 }
             }
         },
@@ -34,6 +32,10 @@
             clicked: function()
             {
                 alert('Custom on-click directive created!!!!')
+            },
+            change: function()
+            {
+                console.log("asd");
             }
         }
     }
