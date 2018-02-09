@@ -2,6 +2,12 @@
 	<div>
     	<h3>Some User Details</h3>
     	<p>Loaded id = {{$route.params.id}}</p>
-    	<button @click="$router.push('/user')" class="btn btn-primary">Go to users</button>
+    	<hr>
+    	<router-link
+    		tag="button"
+    		:to="{name: 'userEdit', params: {id: $route.params.id}}"
+    		class="btn btn-primary">
+    			Edit User {{$route.params.id}}
+    	</router-link>
     </div>
 </template>

@@ -16,7 +16,7 @@
 		{
 			navigateToHome: function()
 			{
-				this.$router.push('/');
+				this.$router.push({name: 'home'});
 			}
 		}
 	}
