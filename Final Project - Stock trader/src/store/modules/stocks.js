@@ -22,7 +22,7 @@ const actions =
 {
 	buyStock: function(context, order)
 	{
-		context.commit();
+		context.commit('BUY_STOCK', order);
 	},
 	initStocks: function(context)
 	{
