@@ -5,7 +5,12 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import {routes} from './routes';
-import store from './store/store'
+import store from './store/store';
+
+Vue.filter('currency', function(value)
+{
+	return '$' + value.toLocaleString();
+})
 
 const router = new VueRouter({
 	mode: 'history',
