@@ -18,7 +18,6 @@
 <script type="text/javascript">
 	export default
 	{
-		props: ['value'],
 		data: function()
 		{
 			return {
