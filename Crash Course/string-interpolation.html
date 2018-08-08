@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<body>
+		<div id="app">
+			{{message}}
+			<br>
+			{{number + 5}}
+			<br>
+			{{isActive? "is active" : "is not active"}}
+			<br>
+			{{message.split('').reverse().join('')}}
+		</div>
+	</body>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script type="text/javascript">
+		let vm = new Vue(
+		{
+			el: '#app',
+			data: 
+			{
+				message: 'Hello World',
+				number: 10,
+				isActive: true
+			}
+		})
+	</script>
+</html>
