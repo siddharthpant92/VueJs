@@ -5,11 +5,15 @@
 	<body>
 		<div class="container">
 			<div id="app">
+				<p>Style binding:</p>
 				Enter font size value: <input type="text" v-model="fontSize">
 				<br>
 				<span :style="{color:'red', fontSize: fontSize+'px'}">{{fontSize}}</span>
 				<br>
 				<span :style="[styleColor, styleFont, {fontSize: fontSize+'px'}]">Style object</span>
+				<br><br><br>
+				<p>Class binding</p>
+				<button @click="{isActive = !isActive}" class="static" :class="{active: isActive, notActive: !isActive}">Click to change class</button>
 			</div>
 		</div>
 	</body>
@@ -31,8 +35,20 @@
 				styleFont:
 				{
 					fontStyle: "italic"
-				}
+				},
+				isActive: true,
 			}
 		});
 	</script>
+	<style type="text/css">
+		.active 
+		{
+			color: green;
+		}
+
+		.notActive
+		{
+			color: red;
+		}
+	</style>
 </html>
