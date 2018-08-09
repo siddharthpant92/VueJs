@@ -27,6 +27,13 @@
 					<br>
 					<p>You selected: {{options.join(', ')}}</p>
 				</div>
+				<br>
+				<!-- @click: same as v-on:click -->
+				<a class="btn" @click="number++">Increment:</a> {{number}}
+				<br>
+				<form @submit.prevent="number++">
+					<button type="submit">Form button, type=submit</button>
+				</form>
 			</div>
 		</div>
 	</body>
@@ -41,7 +48,8 @@
 				url: "https://www.google.com",
 				random: 30,
 				message: "",
-				options: []
+				options: [],
+				number: 0
 			}
 		});
 	</script>
