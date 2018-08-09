@@ -13,7 +13,8 @@
 				<span :style="[styleColor, styleFont, {fontSize: fontSize+'px'}]">Style object</span>
 				<br><br><br>
 				<p>Class binding</p>
-				<button @click="{isActive = !isActive}" class="static" :class="{active: isActive, notActive: !isActive}">Click to change class</button>
+				<button @click="{isActive = !isActive}" class="static" :class="{active: isActive, notActive: !isActive}">Change class: method 1</button>
+				<button @click="{isActive = !isActive}" :class="[isActive ? 'active' : 'notActive']">Change class: method 2</button>
 			</div>
 		</div>
 	</body>
