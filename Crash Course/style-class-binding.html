@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+	<body>
+		<div class="container">
+			<div id="app">
+				<p>Style binding:</p>
+				Enter font size value: <input type="text" v-model="fontSize">
+				<br>
+				<span :style="{color:'red', fontSize: fontSize+'px'}">{{fontSize}}</span>
+				<br>
+				<span :style="[styleColor, styleFont, {fontSize: fontSize+'px'}]">Style object</span>
+				<br><br><br>
+				<p>Class binding</p>
+				<button @click="{isActive = !isActive}" class="static" :class="{active: isActive, notActive: !isActive}">Change class: method 1</button>
+				<button @click="{isActive = !isActive}" :class="[isActive ? 'active' : 'notActive']">Change class: method 2</button>
+				<br><br>
+				<button @click="decreaseFont">Decrease Font Size</button>
+			</div>
+		</div>
+	</body>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script type="text/javascript">
+		let vm = new Vue(
+		{
+			el: "#app",
+			data:
+			{
+				message: "test",
+				fontSize: 30,
+				test: "test",
+				styleColor: 
+				{
+					color: "blue"
+				},
+				styleFont:
+				{
+					fontStyle: "italic"
+				},
+				isActive: true,
+			},
+			methods:
+			{
+				decreaseFont()
+				{
+					this.fontSize--;
+				}
+			}
+		});
+	</script>
+	<style type="text/css">
+		.active 
+		{
+			color: green;
+		}
+
+		.notActive
+		{
+			color: red;
+		}
+	</style>
+</html>

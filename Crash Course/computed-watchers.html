@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+	<body>
+		<div class="container">
+			<div id="app">
+				{{message}}
+				<br>
+				{{reversedMessage}}
+				<br><br>
+				<input type="text" v-model="textValue"> <br>
+				Open console and delete this to see example of watcher
+				Watcher  newValue param: {{changedText}}
+			</div>
+		</div>
+	</body>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script type="text/javascript">
+		let vm = new Vue(
+		{
+			el: "#app",
+			data:
+			{
+				message: "Hello World",
+				textValue: "delete this",
+				changedText: ""
+			},
+			computed:
+			{
+				reversedMessage()
+				{
+					return this.message.split('').reverse().join('')
+				}
+			},
+			watch:
+			{
+				textValue(newValue)
+				{
+					if(newValue.length == 0)
+					{
+						alert("no text!")
+						this.changedText = ""
+					}
+					else
+					{
+						this.changedText = newValue
+					}
+				}
+			}
+		});
+	</script>
+</html>
