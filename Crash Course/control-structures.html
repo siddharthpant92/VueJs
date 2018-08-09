@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+	<body>
+		<div class="container">
+			<div id="app">
+				<button @click="{isActive = !isActive}">Click</button>
+				<div v-if="isActive">
+					{{name}}
+				</div>
+				<div v-else>
+					no name
+				</div>
+				<br>
+				<div v-for="index in 5">
+					<li>
+						{{index}}
+					</li>
+				</div>
+				<br>
+				<div v-for="item in items">
+					<li>
+						{{item}}
+					</li>
+				</div>
+				<br>
+				<div v-for="(value, key, index) in dict">
+					at index {{index}} - key is: {{key}} and value is {{value}}
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script type="text/javascript">
+		let vm = new Vue(
+		{
+			el: "#app",
+			data:
+			{
+				isActive: true,
+				name: "sid",
+				items: ['a', 'b', 'c', 'd'],
+				dict: {"key1":"value1", "key2":"value2" }
+			},
+			methods:
+			{
+				
+			}
+		});
+	</script>
+</html>
