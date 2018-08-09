@@ -15,6 +15,8 @@
 				<p>Class binding</p>
 				<button @click="{isActive = !isActive}" class="static" :class="{active: isActive, notActive: !isActive}">Change class: method 1</button>
 				<button @click="{isActive = !isActive}" :class="[isActive ? 'active' : 'notActive']">Change class: method 2</button>
+				<br><br>
+				<button @click="decreaseFont">Decrease Font Size</button>
 			</div>
 		</div>
 	</body>
@@ -38,6 +40,13 @@
 					fontStyle: "italic"
 				},
 				isActive: true,
+			},
+			methods:
+			{
+				decreaseFont()
+				{
+					this.fontSize--;
+				}
 			}
 		});
 	</script>
