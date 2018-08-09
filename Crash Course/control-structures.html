@@ -28,6 +28,10 @@
 				<div v-for="(value, key, index) in dict">
 					at index {{index}} - key is: {{key}} and value is {{value}}
 				</div>
+				<br>
+				<div v-for="post in posts">
+					<li>id: {{post.id}}, title: {{post.title}}, body: {{post.body}}</li>
+				</div>
 			</div>
 		</div>
 	</body>
@@ -42,7 +46,13 @@
 				isActive: true,
 				name: "sid",
 				items: ['a', 'b', 'c', 'd'],
-				dict: {"key1":"value1", "key2":"value2" }
+				dict: {"key1":"value1", "key2":"value2" },
+				posts: 
+				[
+					{id: 1, title: "title 1", body: "body 1"},
+					{id: 2, title: "title 2", body: "body 2"},
+					{id: 3, title: "title 3", body: "body 3"},
+				]
 			},
 			methods:
 			{
