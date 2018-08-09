@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+	<body>
+		<div class="container">
+			<div id="app">
+				{{message}}
+				<br>
+				{{reversedMessage}}
+			</div>
+		</div>
+	</body>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script type="text/javascript">
+		let vm = new Vue(
+		{
+			el: "#app",
+			data:
+			{
+				message: "Hello World"
+			},
+			computed:
+			{
+				reversedMessage()
+				{
+					return this.message.split('').reverse().join('');
+				}
+			}
+		});
+	</script>
+</html>
