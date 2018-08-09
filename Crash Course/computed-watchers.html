@@ -8,6 +8,10 @@
 				{{message}}
 				<br>
 				{{reversedMessage}}
+				<br><br>
+				<input type="text" v-model="textValue"> <br>
+				Open console and delete this to see example of watcher
+				Watcher  newValue param: {{changedText}}
 			</div>
 		</div>
 	</body>
@@ -19,13 +23,30 @@
 			el: "#app",
 			data:
 			{
-				message: "Hello World"
+				message: "Hello World",
+				textValue: "delete this",
+				changedText: ""
 			},
 			computed:
 			{
 				reversedMessage()
 				{
-					return this.message.split('').reverse().join('');
+					return this.message.split('').reverse().join('')
+				}
+			},
+			watch:
+			{
+				textValue(newValue)
+				{
+					if(newValue.length == 0)
+					{
+						alert("no text!")
+						this.changedText = ""
+					}
+					else
+					{
+						this.changedText = newValue
+					}
 				}
 			}
 		});
