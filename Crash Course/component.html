@@ -8,6 +8,8 @@
 				<temp></temp> times
 				<br><br>
 				<temp></temp>
+				<br><br>
+				<posts title="yes"></posts>
 			</div>
 		</div>
 	</body>
@@ -33,6 +35,17 @@
 					this.count++
 				}
 			}
+		});
+
+		Vue.component('posts',
+		{
+			props:
+			{
+				title: String
+			},
+	        template:'\
+		        <h1>{{title}}</h1>\
+		        '
 		});
 
 		let vm = new Vue(
