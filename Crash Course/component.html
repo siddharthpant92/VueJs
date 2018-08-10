@@ -5,11 +5,14 @@
 	<body>
 		<div class="container">
 			<div id="app">
-				<temp></temp> times
+				<comp></comp>
+				<br>
+				<comp></comp>
 				<br><br>
-				<temp></temp>
+				<prop-comp title="Post title"></prop-comp>
 				<br><br>
-				<posts title="yes"></posts>
+				<p>Parent-Child components</p>
+				<posts></posts>
 			</div>
 		</div>
 	</body>
@@ -18,12 +21,16 @@
 	<script type="text/javascript">
 
 		// Global component
-		Vue.component('temp',
+		Vue.component('comp',
 		{
 			template: '\
-				<button @click="display">{{count}}</button>\
+			<div>\
+				<button @click="display">Increment</button>\
+				{{count}}\
+			</div>\
 			',
-			data() {
+			data()
+			{
 				return {
 					count: 0
 				}
@@ -37,7 +44,7 @@
 			}
 		});
 
-		Vue.component('posts',
+		Vue.component('prop-comp',
 		{
 			props:
 			{
@@ -46,6 +53,38 @@
 	        template:'\
 		        <h1>{{title}}</h1>\
 		        '
+		});
+
+		Vue.component('posts',
+		{
+			template: '\
+			<div class="root-class">\
+				<div class="2" v-for="item in items">\
+					<post>{{item.title}}</post>\
+				</div>\
+			</div>',
+			data()
+			{
+				return {
+					items: 
+					[
+						{id: 1, title: "post title", body: "post body"},
+						{id: 2, title: "post title 2", body: "post body 2"},
+						{id: 3, title: "post title 3", body: "post body 3"},
+					]
+				}
+			}
+		});
+
+		Vue.component('post',
+		{
+			template: '\
+			<ul>\
+				<li>\
+					Title: <slot></slot>\
+				</li>\
+			</ul>\
+			'
 		});
 
 		let vm = new Vue(
