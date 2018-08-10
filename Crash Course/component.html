@@ -5,7 +5,9 @@
 	<body>
 		<div class="container">
 			<div id="app">
-				<posts></posts>
+				<temp></temp> times
+				<br><br>
+				<temp></temp>
 			</div>
 		</div>
 	</body>
@@ -14,18 +16,28 @@
 	<script type="text/javascript">
 
 		// Global component
-		Vue.component('posts', 
+		Vue.component('temp',
 		{
-			template: '<h1>Hello World</h1>'
+			template: '\
+				<button @click="display">{{count}}</button>\
+			',
+			data() {
+				return {
+					count: 0
+				}
+			},
+			methods:
+			{
+				display()
+				{
+					this.count++
+				}
+			}
 		});
 
 		let vm = new Vue(
 		{
-			el: "#app",
-			data:
-			{
-				
-			}
+			el: '#app'
 		});
 	</script>
 </html>
