@@ -6,7 +6,6 @@
 					<router-link class="nav-link" :to="'/'">Home</router-link>
 				</li>
 				<li class="nav-item">
-					<!-- <a class="nav-link" href="#/">Posts</a> -->
 					<router-link class="nav-link" :to="'/posts'">Posts</router-link>
 				</li>
 			</ul>
@@ -27,7 +26,7 @@
 		components: 
 		{
 			// HelloWorld,
-			Posts
+			// Posts
 		}
 	}
 </script>
