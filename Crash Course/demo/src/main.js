@@ -4,11 +4,16 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from "vue-router"
 import Posts from "./components/Posts"
+import HelloWorld from "./components/HelloWorld"
 Vue.use(VueRouter)
 
 const routes = [
 	{
 		path: '/',
+		component: HelloWorld
+	},
+	{
+		path: '/posts',
 		component: Posts
 	}
 ]
